@@ -23,13 +23,13 @@ Another way to deal with styling in React is [CSS Modules](https://github.com/ga
 A Babel plugin to get rid of repeatedly add constructor to React Class Component to set initial state and bind method like this `this.onClickSomething = this.onClickSomething.bind(this)`.\
 With this plugin enabled in babel, you can write:\
 `
-class Toto extends Component {
-  state = {
-    searchTerm: ''
-  }
-  onClickSomething = () => {
-    console.log(this)
-  }
+class Toto extends Component {\
+  state = {\
+    searchTerm: ''\
+  }\
+  onClickSomething = () => {\
+    console.log(this)\
+  }\
 }
 `
 Here state is well initialized as it would in a constructor and this inside the method onClickSomething() is bind to the component.\
