@@ -8,10 +8,10 @@ Welcome to a complete intro to React! The site actual workshop material for this
 Useful auto-formating tool, integrates nicely with most code editor (Webstorm, Atom, Sublime etc...) and ESLint.
 
 ### React router (https://reacttraining.com/react-router/)
-Routing library to build single app with React (now working with React Native too).
+Routing library to build single app with React (now working with React Native too).\
 2 Routing strategies available on browser:
  - HashRouter: use # in URL (http://toto#mypage)
- - BrowserRouter: Use HTML5 History API to write nice looking URL (http://toto/mypage), if you use it with webpack-dev-server don't forget to add historyApiFallback: true to your config.
+ - BrowserRouter: Use HTML5 History API to write nice looking URL (http://toto/mypage)\ if you use it with webpack-dev-server don't forget to add historyApiFallback: true to your config.
 
 ## Contributing
 
