@@ -13,6 +13,12 @@ Routing library to build single app with React (now working with React Native to
  1. HashRouter: use # in URL (http://toto#mypage)
  2. BrowserRouter: Use HTML5 History API to write nice looking URL (http://toto/mypage), if you use it with webpack-dev-server don't forget to add `historyApiFallback: true to your config.
 
+### Styled Components 💅 <https://www.styled-components.com/>
+Styling library for React, permits to style your component in JS according to the philosophy "all about your component in one file" (Structure, Behavior, Style).\
+Behind the scene the library is inserting `<style></style>` tag somewhere in the DOM with hashed CSS classes associated with React created element.
+
+Another way to deal with styling in React is [CSS Modules](https://github.com/gajus/react-css-modules).
+
 ## Contributing
 
 Please contribute, file issues, and make PRs. More than anything I'm sure there are typos abounding.
