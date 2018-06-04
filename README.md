@@ -4,9 +4,8 @@ Welcome to a complete intro to React! The site actual workshop material for this
 
 ## Personal Notes (Corentin)
 
-### Prettier
+### Prettier (https://prettier.io/)
 Useful auto-formating tool, integrates nicely with most code editor (Webstorm, Atom, Sublime etc...) and ESLint.
-=> https://prettier.io/
 
 ## Contributing
 
