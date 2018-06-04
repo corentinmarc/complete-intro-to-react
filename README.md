@@ -13,18 +13,28 @@ Routing library to build single app with React (now working with React Native to
  1. HashRouter: use # in URL (http://toto#mypage)
  2. BrowserRouter: Use HTML5 History API to write nice looking URL (http://toto/mypage), if you use it with webpack-dev-server don't forget to add `historyApiFallback: true to your config.
 
-### Styled Components 💅 <https://www.styled-components.com/>
+### Styled Components 💅 > <https://www.styled-components.com/>
 Styling library for React, permits to style your component in JS according to the philosophy "all about your component in one file" (Structure, Behavior, Style).\
 Behind the scene the library is inserting `<style></style>` tag somewhere in the DOM with hashed CSS classes associated with React created element.
 
 Another way to deal with styling in React is [CSS Modules](https://github.com/gajus/react-css-modules).
 
-## Contributing
+### transform-class-properties plugin > <https://babeljs.io/docs/plugins/transform-class-properties/>
+A Babel plugin to get rid of repeatedly add constructor to React Class Component to set initial state and bind method like this `this.onClickSomething = this.onClickSomething.bind(this)`.\
+With this plugin enabled in babel, you can write:\
+`
+class Toto extends Component {
+  state = {
+    searchTerm: ''
+  }
+  onClickSomething = () => {
+    console.log(this)
+  }
+}
+`
+Here state is well initialized as it would in a constructor and this inside the method onClickSomething() is bind to the component.\
+No need for constructor any more in most case 👍
 
-Please contribute, file issues, and make PRs. More than anything I'm sure there are typos abounding.
-
-## License
-
-MIT
-
-[gh-page]: http://btholt.github.io/complete-intro-to-react/
+### Managing app state
+React has a way to manage state internally to component. It may be enough for the need of your app, don't over complicate your code.\
+Redux is NOT mandatory with React. Here an article wrote by the creator of Redux > [You might not need Redux !](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
