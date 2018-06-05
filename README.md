@@ -22,19 +22,32 @@ Another way to deal with styling in React is [CSS Modules](https://github.com/ga
 ### transform-class-properties plugin > <https://babeljs.io/docs/plugins/transform-class-properties/>
 A Babel plugin to get rid of repeatedly add constructor to React Class Component to set initial state and bind method like this `this.onClickSomething = this.onClickSomething.bind(this)`.\
 With this plugin enabled in babel, you can write:\
-`
-class Toto extends Component {\
-  state = {\
-    searchTerm: ''\
-  }\
-  onClickSomething = () => {\
-    console.log(this)\
-  }\
+```
+class Toto extends Component {
+  state = {
+    searchTerm: ''
+  }
+  onClickSomething = () => {
+    console.log(this)
+  }
 }
-`
+```
 Here state is well initialized as it would in a constructor and this inside the method onClickSomething() is bind to the component.\
 No need for constructor any more in most case 👍
 
 ### Managing app state
 React has a way to manage state internally to component. It may be enough for the need of your app, don't over complicate your code.\
 Redux is NOT mandatory with React. Here an article wrote by the creator of Redux > [You might not need Redux !](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+
+### Jest > <https://facebook.github.io/jest/>
+A testing suite particulary well adapted to React app. It adopt a "zero config" philosophy and works out of the box if you respect some rules.\
+You have to name your test files with `[name].test.js` or `[name].spec.js`\
+It's recommended by airbnb ESlint rules to put your test file in a directory named `__tests__`\\
+Jest automatically work with your babel and it requires you to add some plugin specific to 'test' environment if you use `import` statement in your code.\
+```
+"env": {
+  "test": {
+    "plugins": ["transform-es2015-modules-commonjs"]
+  }
+}
+```
