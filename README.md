@@ -56,3 +56,8 @@ Jest automatically work with your babel and it requires you to add some plugin s
   }
 }
 ```
+You can use `react-test-render` to render your React component in your test and then Snapshot it, the problem with that approach is it will render all the component three and if a sub-component changed, the test will fail.\
+The solution for that problem is to use Enzyme.
+
+### Enzyme > <http://airbnb.io/enzyme/>
+
