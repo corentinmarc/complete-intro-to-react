@@ -66,12 +66,10 @@ Enzyme has a simulate function which permit simulate an event on the UI. It's us
 
 ### Do or not to do testing of React component ?
 Brian Holt's, opinion on unit testing in React: I don't much.\
-Because my markup changes so frequently as I seek to make the best user experience I can, tests are outdated as soon as they're finished.\
-Thus testing markup is counterproductive because they're constantly failing and out-of-date.\
-Rather, what I do is I extract important pieces of generally-useful pieces of logic and unit test the hell out of those.\
-That way as my markup thrashes and changes, I can still re-use battle-tested pieces of logic to power the UI.
+Because my markup changes so frequently as I seek to make the best user experience I can, tests are outdated as soon as they're finished. Thus testing markup is counterproductive because they're constantly failing and out-of-date.\
+Rather, what I do is I extract important pieces of generally-useful pieces of logic and unit test the hell out of those. That way as my markup thrashes and changes, I can still re-use battle-tested pieces of logic to power the UI.
 
-###Istanbul > <https://istanbul.js.org/>
+### Istanbul > <https://istanbul.js.org/>
 Istanbul is a test coverage tool it instruments your js code with line counters, so that you can track how well your unit-tests exercise your codebase.\
 Coverage metrics are available by statement, line, function and branch.\
 \
