@@ -60,4 +60,19 @@ You can use `react-test-render` to render your React component in your test and 
 The solution for that problem is to use Enzyme.
 
 ### Enzyme > <http://airbnb.io/enzyme/>
+A JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.\
+Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal.\
+Enzyme has a simulate function which permit simulate an event on the UI. It's using the React synthetic event system, not DOM events.
 
+### Do or not to do testing of React component ?
+Brian Holt's, opinion on unit testing in React: I don't much.\
+Because my markup changes so frequently as I seek to make the best user experience I can, tests are outdated as soon as they're finished.\
+Thus testing markup is counterproductive because they're constantly failing and out-of-date.\
+Rather, what I do is I extract important pieces of generally-useful pieces of logic and unit test the hell out of those.\
+That way as my markup thrashes and changes, I can still re-use battle-tested pieces of logic to power the UI.
+
+###Istanbul > <https://istanbul.js.org/>
+Istanbul is a test coverage tool it instruments your js code with line counters, so that you can track how well your unit-tests exercise your codebase.\
+Coverage metrics are available by statement, line, function and branch.\
+\
+Istanbul is built inside Jest, You can directly run it with: `jest --coverage`
