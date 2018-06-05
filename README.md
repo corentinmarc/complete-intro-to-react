@@ -41,6 +41,9 @@ Redux is NOT mandatory with React. Here an article wrote by the creator of Redux
 
 ### Jest > <https://facebook.github.io/jest/>
 A testing suite particulary well adapted to React app. It adopt a "zero config" philosophy and works out of the box if you respect some rules.\
+A nice thing with Jest is the Snapshot testing. Snapshot testing permit to compare the rendering of React component.\
+When using the method `toMatchSnapshot()` it creates a snapshot (if none exist) or compare with the existing one.
+When a diff appear with the previous Snapshot, you can update it with `jest -u`\
 You have to name your test files with `[name].test.js` or `[name].spec.js`\
 It's recommended by airbnb ESlint rules to put your test file in a directory named `__tests__`\
 \
