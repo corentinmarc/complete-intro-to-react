@@ -74,3 +74,75 @@ Istanbul is a test coverage tool it instruments your js code with line counters,
 Coverage metrics are available by statement, line, function and branch.\
 \
 Istanbul is built inside Jest, You can directly run it with: `jest --coverage`
+
+### Hot Module Reload
+HMR will take your code that has changed, compile it on the fly, and then inject it into your live-running code.\
+It's possible because of the static graph depencies that webpack know about. In fact it will cut a branch of the three that has change and reinject new code in place.\
+\
+Enable Hot Module Reload for React impose some modifications in your Babel and Webpack config:
+ - Babel:
+ ```
+ "plugins": [
+   "react-hot-loader/babel"
+ ]
+ ```
+ - Webpack:
+ ```
+ entry: [
+     'react-hot-loader/patch',
+     'webpack-dev-server/client?http://localhost:8080',
+     'webpack/hot/only-dev-server',
+     '[your_entry_point].js|x'
+   ],
+   output: {
+     publicPath: '/public/'
+   },
+   devServer: {
+     hot: true,
+   },
+   plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
+ ```
+
+### Flow > <https://flow.org/en/>
+Flow permit to add type checking to Javascript which is a loosely and dynamicaly typed language.\
+It means that natively Javascript doesn't make type checking on variables and permit to reassign a variable with an other types than initially.\
+The problem is that without these type checking your code is less robust and bugs would most likely arise.\
+The goal of Flow is to fix that.\
+\
+What's magical about Flow is that most of this type checking is free. You don't have to do anything to get it! It just knows what type is should by how you initialize it.\
+It's called type inference.\
+Only in certain situations do you need to inform Flow of the types.\
+\
+To init a flow project just do: `yarn run flow -- init`\
+It will create a `.flowconfig` file at the root of the project. In this file you can ignore some third part library check for example.
+\
+To address the problem of the type of variables coming from third part library, there is a package called `flow-typed`.\
+```
+yarn global add flow-typed
+flow-typed install
+```
+This will create a directory `flow-typed` containing those information about types from third-part libraries.\
+\
+To run flow type checking process: `yarn run flow`\
+\
+By default Flow don't check any file, you have to declare which to check by adding: `// @flow` at the top of the files. This way you can introduce progressively type checking to your code base 👍
+\
+Example of typed function declaration:
+```
+handleSearchTermChange = (event: SyntheticKeyboardEvent &  { target: HTMLInputElement }) => {...}
+```
+/!\ Here you are now writing unvalid Javascript code, so you need the preset babel-preset-react enabled to your babel config.\
+\
+Flow permit to define "Maybe" types, this is useful when you expect some types and get null value or undefined value instead.
+```
+function acceptsMaybeNumber(value: ?number) {...}
+```
+Flow also permit to define "Union" types, this is useful when you can accept two or more types for a value.
+```
+function toStringPrimitives(value: number | boolean | string) {...}
+```
+Flow also permit to define "Mixed" types, this is useful when you don't know the type of what you are accepting. => It's like no type.
+```
+function getTypeOf(value: mixed): string {...}
+```
+
