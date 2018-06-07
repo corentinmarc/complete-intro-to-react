@@ -116,7 +116,7 @@ Only in certain situations do you need to inform Flow of the types.\
 To init a flow project just do: `yarn run flow -- init`\
 It will create a `.flowconfig` file at the root of the project. In this file you can ignore some third part library check for example.
 \
-To address the problem of the type of variables coming from third part library, there is a package called `flow-typed`.\
+To address the problem of the type of variables coming from third part library, there is a package called `flow-typed`.
 ```
 yarn global add flow-typed
 flow-typed install
@@ -145,4 +145,15 @@ Flow also permit to define "Mixed" types, this is useful when you don't know the
 ```
 function getTypeOf(value: mixed): string {...}
 ```
-
+To create custom types, you have to insert it in one or many file(s) created in `flow-typed` directory.\
+Here an example of custom type definition:
+```
+export type Show = {
+  title: string,
+  description: string,
+  year: string,
+  imdbID: string,
+  poster: string,
+  trailer: string
+};
+```
