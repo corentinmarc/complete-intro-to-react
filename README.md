@@ -145,7 +145,7 @@ Flow also permit to define "Mixed" types, this is useful when you don't know the
 ```
 function getTypeOf(value: mixed): string {...}
 ```
-To create custom types, you have to insert it in one or many file(s) created in `flow-typed` directory.\
+To create custom types, you have to insert it in one or many file(s) created in `flow-typed` directory. This way the type declaration is global and no import is needed to use it.\
 Here an example of custom type definition:
 ```
 export type Show = {
@@ -157,3 +157,17 @@ export type Show = {
   trailer: string
 };
 ```
+### React lifecycle methods
+- componentWillMount: This method runs right before the component gets mounted. This one is not too common to use, but you will want to use it any time you want to ensure code to run both in node and in the browser.
+- componentDidMount: This method runs right after your component gets put into the DOM. This method will not get run in node but will in the browser. This makes it so your component can render first then you can go get the data you need. Also if you need to interact with the DOM (like if you were wrapping D3 or a jQuery plugin) this would be the place to do it.
+- componentWillReceiveProps: This method runs every time the React component receives new/different props from the parent. If some of the state you keep in your component is derived from the parent props, this is where you would take care of that.
+- shouldComponentUpdate: This method returns a boolean letting React know if it should re-render the component. This is for performance purposes. If you have a component that will never update (like a static logo or something) you can just return false here.
+- componentWillUnmount: This method runs right before the component is taken off the DOM. Most common thing to do here is get rid of external event listeners or other things you need to clean up.
+
+### React devtools > <https://github.com/facebook/react-devtools>
+Dev Tools allow you to explore the virtual DOM of React as if it was just a normal DOM tree. You can see what props and states are in each component and even modify the state of components\
+\
+Select something in the virtual DOM in the React tab. Now go to the Console tab and type $r. It should be a reference to the element you have selected in the virtual DOM and you can manipulate it.
+
+
+
