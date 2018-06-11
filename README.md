@@ -165,14 +165,14 @@ export type Show = {
 - **componentWillUnmount**: This method runs right before the component is taken off the DOM. Most common thing to do here is get rid of external event listeners or other things you need to clean up.
 
 ### React devtools > <https://github.com/facebook/react-devtools>
-Dev Tools allow you to explore the virtual DOM of React as if it was just a normal DOM tree. You can see what props and states are in each component and even modify the state of components\
+Dev Tools allow you to explore the virtual DOM of React as if it was just a normal DOM tree. You can see what props and states are in each component and even modify the state of components.\
 \
 Select something in the virtual DOM in the React tab. Now go to the Console tab and type $r. It should be a reference to the element you have selected in the virtual DOM and you can manipulate it.
 
 ### Redux > <https://redux.js.org/>
 Redux is a state management library. With Redux you have a **single store** which stores your entire app state in a single tree.\
 You cannot directly modify the tree of data stored in this tree by typical assignment. Rather, **every time you want to modify the tree, you emit an action**.\
-**Your action then kicks off what's called a reducer**. A reducer is a special function that take a tree and parameter(s) and returns a new tree\
+**Your action then kicks off what's called a reducer**. A reducer is a special function that take a tree and parameter(s) and returns a new tree.\
 **Reducers are pure functions** (without side effect) and so their are **predictable**. Given a state and an action, the new state returned by the reducer will always be the same.\
 \
 With Redux you will create a bunch of new files to manage the creation of the Redux store, actionCreators, constants defining actions types, reducers computing the new state and also will modify your React component to connect them to Redux.\
@@ -182,8 +182,7 @@ To connect your React component you will use `react-redux` library which export 
 You will create a `mapStateToProps()` and `mapDispatchToProps()` function who make the glue between Redux (state and actions) and your React component.\
 \
 Redux `combineReducers()` function creates the root reducer for you and permits to separates each reducer into its own silo.\
-With `combineReducers()`, each reducer only gets the part that it's worried about and nothing else.\
-
+With `combineReducers()`, each reducer only gets the part that it's worried about and nothing else.
 
 ### Redux devTools
 It's available as a Chrome and Firefox extension.\
@@ -200,9 +199,10 @@ const store = createStore(
 ```
 
 ### Async Redux
-Redux by default has no mechanism for handling asynchronous actions.\
-Luckily, Redux accept middleware so we can enhance it. There is a lot of way to manage asynchronous tasks with Redux, the most popular are [redux-thunk](https://github.com/reduxjs/redux-thunk), [redux-promise](https://github.com/redux-utilities/redux-promise), [redux-observable](https://github.com/redux-observable/redux-observable) and [redux-saga](https://github.com/redux-saga/redux-saga).
-You will be using on of those library in function of your need or convenience. It will permit you to do all asynchronous stuff (like API calll) and unpure operations which aren't permit in reducers.\
+**Redux by default has no mechanism for handling asynchronous actions**.\
+Luckily, Redux accept middleware so we can enhance it. There is a **lot of way to manage asynchronous tasks with Redux**, the **most popular are [redux-thunk](https://github.com/reduxjs/redux-thunk), [redux-promise](https://github.com/redux-utilities/redux-promise), [redux-observable](https://github.com/redux-observable/redux-observable) and [redux-saga](https://github.com/redux-saga/redux-saga)**.\
+You will be using on of those library in function of your need or convenience.\
+It will permit you **to do all asynchronous stuff (like API calll) and unpure operations** which aren't permit in reducers.
 
 
 
